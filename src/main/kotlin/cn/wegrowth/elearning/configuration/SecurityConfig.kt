@@ -33,11 +33,6 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
     @Value("\${remote-token.check-authorization-url}")
     private lateinit var checkAuthUrl: String
 
-    override fun configure(web: WebSecurity) {
-        web.ignoring()
-            .antMatchers("%s/**".format("/h2"))
-    }
-
     @Bean
     fun tokenServices(): ResourceServerTokenServices {
         val tokenServices = RemoteTokenServices()
@@ -60,6 +55,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
             .antMatchers("/").permitAll()
             .antMatchers("%s/**".format(restApiDocPath)).permitAll()
             .antMatchers("%s/**".format(swaggerPath)).permitAll()
+            .antMatchers("%s/**".format("/actuator")).permitAll()
             .anyRequest().authenticated()
     }
 
