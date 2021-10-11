@@ -9,5 +9,5 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient
 class ELearningApplication
 
 fun main(args: Array<String>) {
-	runApplication<ELearningApplication>(*args)
+    runApplication<ELearningApplication>(*args)
 }

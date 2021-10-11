@@ -10,9 +10,9 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 class ResourceServerConfig : ResourceServerConfigurerAdapter() {
 
     override fun configure(http: HttpSecurity) {
-       http.anonymous().disable()
-           .requestMatchers().antMatchers("/api/**")
-           .and().authorizeRequests()
-           .antMatchers("/api/**").authenticated()
+        http.anonymous().disable()
+            .requestMatchers().antMatchers("/api/**")
+            .and().authorizeRequests()
+            .antMatchers("/api/**").authenticated()
     }
 }
