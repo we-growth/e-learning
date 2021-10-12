@@ -49,12 +49,16 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
 
     }
 
+    override fun configure(web: WebSecurity) {
+        web.ignoring()
+            .antMatchers("%s/**".format(restApiDocPath))
+            .antMatchers("%s/**".format(swaggerPath))
+    }
+
     override fun configure(http: HttpSecurity) {
 
         http.authorizeRequests()
             .antMatchers("/").permitAll()
-            .antMatchers("%s/**".format(restApiDocPath)).permitAll()
-            .antMatchers("%s/**".format(swaggerPath)).permitAll()
             .antMatchers("%s/**".format("/actuator")).permitAll()
             .anyRequest().authenticated()
     }
