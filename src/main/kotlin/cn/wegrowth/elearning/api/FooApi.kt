@@ -15,7 +15,7 @@ class FooApi {
     }
 
     @GetMapping("foo2")
-    @PreAuthorize("hasRole('foo')")
+    @PreAuthorize("hasRole('ADMIN')")
     fun getUserFoo(hello: String): String {
         return hello + " at " + DateTime.now()
     }
