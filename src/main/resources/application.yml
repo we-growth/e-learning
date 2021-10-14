@@ -15,6 +15,8 @@ remote-token:
   client-id: service
   client-credential: microservice
   check-authorization-url: http://localhost:9000/oauth/check_token
+
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/e-learning?useSSL=false
